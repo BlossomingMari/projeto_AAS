@@ -4,7 +4,7 @@ app = Flask(__name__)
 produtos = [
     "Sapatilhas",
     "Botas",
-    "Tênis"
+    "Tênis",
     "chinelos"
 ]
 
