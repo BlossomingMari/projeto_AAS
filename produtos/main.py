@@ -2,10 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 produtos = [
-    "Sapatilhas",
-    "Botas",
-    "Tênis",
-    "chinelos"
+    {"nome": "Sapatilhas", "preco": "49,90"},
+    {"nome": "Botas", "preco": "79,90"},
 ]
 
 @app.get("/produtos")

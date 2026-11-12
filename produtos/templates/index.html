@@ -1,18 +1,90 @@
+</html>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <ul> 
-        
-        {% for produto in produtos %}
-            <li>{{ produto }}</li>
-        {% endfor %}
 
-    </ul>
-    
+    <header class="topo">
+        <a class="logo" href="/">Passo.</a>
+        <nav>
+            <a href="/">Início</a>
+            <a href="#mais-vendidos">Produtos</a>
+            <a href="#opinioes">Opiniões</a>
+            <a href="#contactos">Contactos</a>
+        </nav>
+    </header>
+
+    <!-- Destaque -->
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>Caminha com estilo</h1>
+            <p>Sapatilhas, botas e chinelos para todos os dias. Conforto e qualidade em cada passo.</p>
+            <div class="botoes">
+                <a class="btn" href="#mais-vendidos">Ver produtos</a>
+            </div>
+        </div>
+
+        <!-- Quando tiveres a imagem: <img src="{{ url_for('static', filename='imagens/hero.png') }}" alt="Sapato em destaque"> -->
+        <div class="img-placeholder hero-img">👟</div>
+    </section>
+
+    <!-- Lista de produtos (vem do main.py) -->
+    <h2 id="mais-vendidos" class="titulo-seccao">Os nossos produtos</h2>
+
+    <section class="grelha">
+        {% for produto in produtos %}
+        <article class="cartao">
+            <!-- Quando tiveres a imagem: <img src="{{ url_for('static', filename='imagens/' ~ produto|lower ~ '.png') }}" alt="{{ produto }}"> -->
+            <div class="img-placeholder">👟</div>
+            <h3>{{ produto }}</h3>
+            <p>Descrição curta do produto.</p>
+            <div class="cartao-fim">
+                <span class="preco">00,00 €</span>
+                <a class="btn btn-pequeno" href="#">Comprar</a>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+
+    <!-- Opiniões -->
+    <h2 id="opinioes" class="titulo-seccao">Opiniões dos clientes</h2>
+
+    <section class="grelha grelha-3">
+        <article class="cartao">
+            <h3>Nome do cliente</h3>
+            <p>"Texto da opinião do cliente sobre o produto."</p>
+        </article>
+        <article class="cartao">
+            <h3>Nome do cliente</h3>
+            <p>"Texto da opinião do cliente sobre o produto."</p>
+        </article>
+        <article class="cartao">
+            <h3>Nome do cliente</h3>
+            <p>"Texto da opinião do cliente sobre o produto."</p>
+        </article>
+    </section>
+
+    <footer id="contactos" class="rodape">
+        <div>
+            <a class="logo" href="/">Passo.</a>
+            <p>A tua loja de calçado.</p>
+        </div>
+        <div>
+            <h4>Ligações</h4>
+            <a href="/">Início</a>
+            <a href="#mais-vendidos">Produtos</a>
+        </div>
+        <div>
+            <h4>Contactos</h4>
+            <p>geral@passo.pt</p>
+        </div>
+    </footer>
+
 </body>
 </html>

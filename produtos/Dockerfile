@@ -6,4 +6,6 @@ COPY main.py /main.py
 
 COPY templates /templates
 
+COPY static /static
+
 CMD ["python", "/main.py"]
