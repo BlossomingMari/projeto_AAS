@@ -3,8 +3,12 @@ from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
 
 produtos = [
-    {"id": 1, "nome": "Ténis Urban", "preco": 59.99, "tamanhos": [38, 39, 40, 41, 42]},
-    {"id": 2, "nome": "Bota Classic", "preco": 79.99, "tamanhos": [37, 38, 39, 40, 41]},
+    {"id": 1, "marca": "Nike", "modelo": "Speedcat Croco Leather Sneakers Women", "preco": 84.00,
+     "tamanhos": {"35,5": 5, "36": 4, "37": 6, "38": 3, "39": 0, "40": 3, "41": 7, "42": 2, "43": 1, "43.5": 6}},
+    {"id": 2, "marca": "Adidas", "modelo": "Speedcat Wedge Sneakers Women", "preco": 130.00,
+     "tamanhos": {"35,5": 5, "36": 4, "37": 6, "38": 3, "39": 0, "40": 3, "41": 7, "42": 2, "43": 1, "43.5": 6}},
+    {"id": 3, "marca": "Puma", "modelo": "Speedcat OG Sneakers Unisex", "preco": 88.00,
+     "tamanhos": {"35,5": 5, "36": 4, "37": 6, "38": 3, "39": 0, "40": 3, "41": 7, "42": 2, "43": 1, "43.5": 6}},
 ]
 
 @app.get("/")
@@ -34,10 +38,5 @@ def adicionar_produto():
     produtos.append(novo)
     return jsonify(novo), 201
 
-@app.get("/")
-def pagina_inicial():
-    return render_template("index.html", produtos=produtos)
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
-    

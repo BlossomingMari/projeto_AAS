@@ -9,7 +9,10 @@
     <h1>Sapatos</h1>
     <ul>
         {% for p in produtos %}
-        <li>{{ p.nome }} - {{ p.preco}}€ (tamanhos: {{ p.tamanhos | join(", ") }})</li>
+        <li>
+        <a href="/produtos/{{ p.id }}">{{ p.marca }} {{ p.modelo }}</a> - {{ p.preco }}€
+        (tamanhos: {{ p.tamanhos | join(", ") }})
+        </li>
         {% endfor %}
     </ul>
     
